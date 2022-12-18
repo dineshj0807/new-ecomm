@@ -1,0 +1,41 @@
+pip install virtualenv
+virtualenv env
+cd\env\scripts\activate
+cd\env\scripts\activate\pip list
+pip install django
+pip install pillow
+-------------------------
+django-admin startproject ec
+ec\ python manage.py runserver
+------------------------------------
+python manage.py startapp app -------- register in installedapp
+-------------------------------------
+views.py
+
+def home(request):
+	return render(request,"app/index.html")
+----------------------------------------------
+templates\app\index.html
+<h1> hello django >
+----------------------------------------------
+app\urls.py
+from . import views
+urlpatterns = [path("", views,home),]
+
+ec\urls.py
+urlpatterns = [path("", include("app.urls")),]
+-------------------------------------------------------
+to design homepage we will require css files, javascript files, related bootstrap, fontawesome, owl carousel.min.css library
+
+create static folder in app---- app\static\app
+app\static\app\css ---- all.min.css, style.css, owl.carousel.min.css
+app\static\app\images
+app\static\app\js ------ all.min.js, myscript.js, owl.carousel.min.js
+
+register static folder in settings.py
+
+STATIC_URL = "/static/"
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR/'media'
+
+------------xxxxxxxxxx--------------------
